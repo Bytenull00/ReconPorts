@@ -59,13 +59,13 @@ function StartIPs(){
 
 	echo "" > $results/ftp.txt; echo "" > $results/ssh.txt; echo "" > $results/mysql.txt ;echo "" > $results/http.txt
 	echo "" > $results/vnc.txt; echo "" > $results/tomcat.txt 
-	echo "" > $results/mssql.txt; echo "" > $results/postgresl.txt; echo "" > $results/oracle.txt; echo "" > $results/telnet.txt
+	echo "" > $results/mssql.txt; echo "" > $results/postgresql.txt; echo "" > $results/oracle.txt; echo "" > $results/telnet.txt
 	echo "" > $results/ajp.txt
 	STARTTIME=$(date +%s)
 	sleep 0.5
 	echo -e "\n${yellowColour}[*] Starting ... ${endColour}"
 	sleep 0.5
-	echo -e "\n${blueColour}[*] Scan Ports FTP,SSH,TELNET,HTTP,HTTPS,ORACLE,MSSQL,MYSQL,POSTGREST,AJP,TOMCAT,VNC ${endColour}"
+	echo -e "\n${blueColour}[*] Scan Ports FTP,SSH,TELNET,HTTP,HTTPS,ORACLE,MSSQL,MYSQL,POSTGRESQL,AJP,TOMCAT,VNC ${endColour}"
 	declare -i count_vulnerable=0
 	STARTTIME2=$(date +%s)
 	for (( c="$(echo $ip_first)"; c<="$(echo $ip_last)"; c++ )); do
@@ -96,7 +96,7 @@ function StartIPs(){
 	   		elif [ "3306" == $port ]; then
 	   			echo $bloque.$c >> $results/mysql.txt
 	   		elif [ "5432" == $port ]; then
-	   			echo $bloque.$c >> $results/postgresl.txt
+	   			echo $bloque.$c >> $results/postgresql.txt
 	   		elif [ "5800" = $port ] || [ "5900" = $port ]; then
 	   			if [ "0" == $count_vnc ]; then
 	   				echo -e "$bloque.$c $port,\c" >> $results/vnc.txt
@@ -119,7 +119,7 @@ function StartIPs(){
 	done
 	sed -i '/^$/d' $results/http.txt; sed -i '/^$/d' $results/tomcat.txt; sed -i '/^$/d' $results/vnc.txt
 	sed -i '/^$/d' $results/oracle.txt; sed -i '/^$/d' $results/mysql.txt; sed -i '/^$/d' $results/ssh.txt
-	sed -i '/^$/d' $results/ftp.txt; sed -i '/^$/d' $results/telnet.txt; sed -i '/^$/d' $results/postgresl.txt
+	sed -i '/^$/d' $results/ftp.txt; sed -i '/^$/d' $results/telnet.txt; sed -i '/^$/d' $results/postgresql.txt
 	sed -i '/^$/d' $results/mssql.txt	
 	echo ""
 	echo -e "${greenColour}[*] Saving results in ftp.txt ${endColour}"
@@ -134,7 +134,7 @@ function StartIPs(){
 	sleep 0.5
 	echo -e "${greenColour}[*] Saving results in mysql.txt ${endColour}"
 	sleep 0.5
-	echo -e "${greenColour}[*] Saving results in postgresl.txt ${endColour}"
+	echo -e "${greenColour}[*] Saving results in postgresql.txt ${endColour}"
 	sleep 0.5
 	echo -e "${greenColour}[*] Saving results in vnc.txt ${endColour}"
 	sleep 0.5
@@ -160,13 +160,13 @@ function StartFile(){
 
 	echo "" > $results/ftp.txt; echo "" > $results/ssh.txt; echo "" > $results/mysql.txt ;echo "" > $results/http.txt
 	echo "" > $results/vnc.txt; echo "" > $results/tomcat.txt 
-	echo "" > $results/mssql.txt; echo "" > $results/postgresl.txt; echo "" > $results/oracle.txt; echo "" > $results/telnet.txt
+	echo "" > $results/mssql.txt; echo "" > $results/postgresql.txt; echo "" > $results/oracle.txt; echo "" > $results/telnet.txt
 	echo "" > $results/ajp.txt
 	STARTTIME=$(date +%s)
 	sleep 0.5
 	echo -e "\n${yellowColour}[*] Starting ... ${endColour}"
 	sleep 0.5
-	echo -e "\n${blueColour}[*] Scan Ports FTP,SSH,TELNET,HTTP,HTTPS,ORACLE,MSSQL,MYSQL,POSTGREST,AJP,TOMCAT,VNC ${endColour}"
+	echo -e "\n${blueColour}[*] Scan Ports FTP,SSH,TELNET,HTTP,HTTPS,ORACLE,MSSQL,MYSQL,POSTGRESQL,AJP,TOMCAT,VNC ${endColour}"
 	declare -i count_vulnerable=0
 	STARTTIME2=$(date +%s)
 	while read ip; do
@@ -197,7 +197,7 @@ function StartFile(){
 	   		elif [ "3306" == $port ]; then
 	   			echo $ip >> $results/mysql.txt
 	   		elif [ "5432" == $port ]; then
-	   			echo $ip >> $results/postgresl.txt
+	   			echo $ip >> $results/postgresql.txt
 	   		elif [ "5800" = $port ] || [ "5900" = $port ]; then
 	   			if [ "0" == $count_vnc ]; then
 	   				echo -e "$ip $port,\c" >> $results/vnc.txt
@@ -220,7 +220,7 @@ function StartFile(){
 	done < $TARGET
 	sed -i '/^$/d' $results/http.txt; sed -i '/^$/d' $results/tomcat.txt; sed -i '/^$/d' $results/vnc.txt
 	sed -i '/^$/d' $results/oracle.txt; sed -i '/^$/d' $results/mysql.txt; sed -i '/^$/d' $results/ssh.txt
-	sed -i '/^$/d' $results/ftp.txt; sed -i '/^$/d' $results/telnet.txt; sed -i '/^$/d' $results/postgresl.txt
+	sed -i '/^$/d' $results/ftp.txt; sed -i '/^$/d' $results/telnet.txt; sed -i '/^$/d' $results/postgresql.txt
 	sed -i '/^$/d' $results/mssql.txt	
 	echo ""
 	echo -e "${greenColour}[*] Saving results in ftp.txt ${endColour}"
@@ -235,7 +235,7 @@ function StartFile(){
 	sleep 0.5
 	echo -e "${greenColour}[*] Saving results in mysql.txt ${endColour}"
 	sleep 0.5
-	echo -e "${greenColour}[*] Saving results in postgresl.txt ${endColour}"
+	echo -e "${greenColour}[*] Saving results in postgresql.txt ${endColour}"
 	sleep 0.5
 	echo -e "${greenColour}[*] Saving results in vnc.txt ${endColour}"
 	sleep 0.5
