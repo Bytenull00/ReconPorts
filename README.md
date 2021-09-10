@@ -2,7 +2,7 @@
 
 A simple and fast bash tool to list IP addresses for every known port.
 
-Scans the following known ports: FTP, SSH, TELNET, HTTP, HTTPS, ORACLE, MSSQL, MYSQL, POSTGREST, AJP, TOMCAT, VNC
+Scans the following known ports: FTP, SSH, TELNET, HTTP, HTTPS, ORACLE, MSSQL, MYSQL, POSTGRESQL, AJP, TOMCAT, VNC
 ### Requirements
 
 ```
@@ -44,7 +44,7 @@ Create an output directory and generate the following files with the IP addresse
 [*] Saving results in mssql.txt 
 [*] Saving results in oracle.txt 
 [*] Saving results in mysql.txt 
-[*] Saving results in postgresl.txt 
+[*] Saving results in postgresql.txt 
 [*] Saving results in vnc.txt 
 [*] Saving results in ajp.txt 
 [*] Saving results in tomcat.txt 
