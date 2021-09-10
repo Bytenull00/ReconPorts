@@ -50,7 +50,7 @@ function StartIPs(){
 	bloque="$(echo $TARGET | cut -d '.' -f 1,2,3)"
 	
 	results=output
-	#condicional para saber si el directorio output existe o no
+	
 	if [ -d "$results" ]; then
    		:
 	else
@@ -108,7 +108,7 @@ function StartIPs(){
 	   			echo $bloque.$c >> $results/ajp.txt
 	   		elif [ "8080" = $port ] || [ "8081" = $port ] || [ "8443" = $port ] || [ "8090" = $port ]; then
 	   			if [ "0" == $count_tomcat ]; then
-	   				echo -e "$bloque.$c $port,\c" > $results/tomcat.txt # \c le dice a bash que permanezca en la misma linea
+	   				echo -e "$bloque.$c $port,\c" > $results/tomcat.txt 
 	   				count_tomcat=1
 	   			else
 	   				echo $port >> $results/tomcat.txt
@@ -151,7 +151,7 @@ function StartIPs(){
 function StartFile(){
 		TARGET=$reconFile
 		results=output
-	#condicional para saber si el directorio output existe o no
+	
 	if [ -d "$results" ]; then
    		:
 	else
@@ -209,7 +209,7 @@ function StartFile(){
 	   			echo $ip >> $results/ajp.txt
 	   		elif [ "8080" = $port ] || [ "8081" = $port ] || [ "8443" = $port ] || [ "8090" = $port ]; then
 	   			if [ "0" == $count_tomcat ]; then
-	   				echo -e "$ip $port,\c" > $results/tomcat.txt # /c le dice a bash que permanezca en la misma linea
+	   				echo -e "$ip $port,\c" > $results/tomcat.txt 
 	   				count_tomcat=1
 	   			else
 	   				echo $port >> $results/tomcat.txt
